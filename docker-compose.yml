@@ -1,5 +1,5 @@
 api-server:
-  image: staff-api-server
+  image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-api-server:latest
   links:
    - mongo
    - rabbitmq
@@ -12,7 +12,7 @@ api-server:
 
 
 app-web:
-  image: staff-app-web
+  image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-app-web:latest
   ports:
    - "3000:3000"
   environment:
