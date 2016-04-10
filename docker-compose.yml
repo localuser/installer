@@ -1,0 +1,26 @@
+api-server:
+  image: staff-api-server
+  links:
+   - mongo
+   - rabbitmq
+  ports:
+   - "80:3000"
+  environment:
+   MONGO_URI: mongodb://mongo/staffdotcom'
+   RABBIT_URI: amqp://rabbitmq
+   NODE_ENV: development
+
+
+app-web:
+  image: staff-app-web
+  ports:
+   - "3000:3000"
+  environment:
+   API_URL: "http://api.staff.local"
+   NODE_ENV: production
+
+mongo:
+  image: mongo
+
+rabbitmq:
+  image: rabbitmq
