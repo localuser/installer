@@ -9,5 +9,5 @@
 ## Install 
 
 * `git clone https://github.com/mystaff/installer`
-* `aws ecr get-login --region us-east-1`
+* `aws ecr get-login --region us-east-1` (use docker-registry user credentials)
 * `docker-compose up`
