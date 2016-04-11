@@ -18,14 +18,13 @@ app-web:
   ports:
    - "3000:3000"
   environment:
-   PORT: 3000
    API_URL: "http://api.staff.local"
    NODE_ENV: production
 
 app-admin:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-app-admin:latest
   ports:
-   - "3001:3001"
+   - "3002:3000"
   environment:
    PORT: 3001
    API_URL: "http://api.staff.local"
