@@ -23,7 +23,7 @@ app-web:
 app-admin:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-app-admin:latest
   ports:
-   - "3000:3001"
+   - "3001:3000"
   environment:
    API_URL: "http://api.staff.local"
    NODE_ENV: production
