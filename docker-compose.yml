@@ -4,9 +4,9 @@ api-server:
    - mongo
    - rabbitmq
   ports:
-   - "80:3000"
+   - "80:3001"
   environment:
-   PORT: 3000
+   PORT: 3001
    MONGO_URI: mongodb://mongo/staffdotcom'
    RABBIT_URI: amqp://rabbitmq
    API_URL: "http://api.staff.local"
@@ -18,14 +18,16 @@ app-web:
   ports:
    - "3000:3000"
   environment:
+   PORT: 3000
    API_URL: "http://api.staff.local"
    NODE_ENV: production
 
 app-admin:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-app-admin:latest
   ports:
-   - "3001:3000"
+   - "3001:3001"
   environment:
+   PORT: 3001
    API_URL: "http://api.staff.local"
    NODE_ENV: production
 
