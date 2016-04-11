@@ -4,9 +4,9 @@ api-server:
    - mongo
    - rabbitmq
   ports:
-   - "80:3001"
+   - "80:80"
   environment:
-   PORT: 3001
+   PORT: 80
    MONGO_URI: mongodb://mongo/staffdotcom'
    RABBIT_URI: amqp://rabbitmq
    API_URL: "http://api.staff.local"
