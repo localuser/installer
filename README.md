@@ -18,7 +18,7 @@
 * retrive IP for the docker host (`docker-machine ip`)
 * add hosts into your `/etc/hosts` 
 
-`$DOCKER_IP api.staff.local app.staff.local admin.staff.local desktop.staff.local`
+`X.X.X.X api.staff.local app.staff.local admin.staff.local desktop.staff.local`
 
 
 ## Extra
