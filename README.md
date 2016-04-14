@@ -16,7 +16,8 @@
 ## DNS changes
 
 * retrive IP for the docker host (`docker-machine ip`)
-* add api.staff.local $DOCKER_IP into `/etc/hosts` 
+* add hosts into your `/etc/hosts` 
+`$DOCKER_IP api.staff.local app.staff.local admin.staff.local desktop.staff.local`
 
 
 ## Extra
