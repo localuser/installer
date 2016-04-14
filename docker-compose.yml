@@ -2,6 +2,8 @@ nginx:
   restart: always
   ports:
     - "80:80"
+  volumes:
+    - /var/nginx/conf:/etc/nginx
   links:
     - api-server
     - app-web
