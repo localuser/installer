@@ -1,3 +1,13 @@
+nginx:
+  restart: always
+  ports:
+    - "80:80"
+  links:
+    - api-server
+    - app-web
+    - app-admin
+    - app-desktop
+
 api-server:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-api-server:latest
   links:
@@ -29,7 +39,7 @@ app-admin:
    API_URL: "http://api.staff.local"
    NODE_ENV: production
 
-staff-app-desktop:
+app-desktop:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-app-desktop:latest
   ports:
    - "6000:3000"
