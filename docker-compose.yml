@@ -16,10 +16,8 @@ api-server:
   links:
    - mongo
    - rabbitmq
-  ports:
-   - "80:80"
   environment:
-   PORT: 80
+   PORT: 3000
    MONGO_URI: mongodb://mongo/staffdotcom'
    RABBIT_URI: amqp://rabbitmq
    API_URL: "http://api.staff.local"
@@ -27,25 +25,22 @@ api-server:
 
 app-web:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-app-web:latest
-  ports:
-   - "4000:3000"
   environment:
+   PORT: 3000
    API_URL: "http://api.staff.local"
    NODE_ENV: production
 
 app-admin:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-app-admin:latest
-  ports:
-   - "5000:3000"
   environment:
+   PORT: 3000
    API_URL: "http://api.staff.local"
    NODE_ENV: production
 
 app-desktop:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-app-desktop:latest
-  ports:
-   - "6000:3000"
   environment:
+   PORT: 3000
    API_URL: "http://api.staff.local"
    NODE_ENV: production
 
