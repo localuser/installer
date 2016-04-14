@@ -22,7 +22,6 @@ api-server:
    API_URL: "http://api.staff.local"
    NODE_ENV: production
 
-
 app-web:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-app-web:latest
   ports:
