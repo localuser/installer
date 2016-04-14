@@ -3,7 +3,7 @@ nginx:
   ports:
     - "80:80"
   volumes:
-    - /var/nginx/conf:/etc/nginx
+    - ./etc/nginx/:/etc/nginx
   links:
     - api-server
     - app-web
