@@ -1,9 +1,10 @@
 nginx:
+  image: nginx:stable-alpine
   restart: always
   ports:
     - "80:80"
   volumes:
-    - ./etc/nginx/:/etc/nginx
+    - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
   links:
     - api-server
     - app-web
