@@ -46,6 +46,8 @@ app-desktop:
 
 mongo:
   image: mongo
+  volumes:
+    - ./storage/mongodb:/data/db
 
 rabbitmq:
   image: rabbitmq
