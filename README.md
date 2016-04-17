@@ -2,8 +2,12 @@
 
 ## Requirements
 
+* Docker based host
 * https://docs.docker.com/compose/install/
 * https://aws.amazon.com/cli/
+
+## Recomended hardware
+* 2CPU / 2GB of RAM / 20GB HDD
 
 
 ## Install 
@@ -23,3 +27,5 @@
 
 ## Extra
 * `docker-compose ps` shows running containers.
+
+
