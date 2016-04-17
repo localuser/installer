@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* https://docs.docker.com/compose/
+* https://docs.docker.com/compose/install/
 * https://aws.amazon.com/cli/
 
 
