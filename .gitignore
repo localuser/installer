@@ -1,2 +1,5 @@
 ## Directory-based project format:
 .idea/
+
+#
+.storage/
