@@ -10,6 +10,7 @@ nginx:
     - app-web
     - app-admin
     - app-desktop
+    - grafana
 
 api-server:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-api-server:latest
@@ -54,8 +55,6 @@ rabbitmq:
 
 cadvisor:
   image: google/cadvisor
-  #ports:
-  #  - "8080:8080"
   expose:
     - "8080"
   volumes:
@@ -73,45 +72,17 @@ prometheus:
   image: "prom/prometheus"
   links:
     - cadvisor
-    - node-exporter
-  ports:
-    - "9090:9090"
   expose:
     - "9090"
   volumes:
     - ./etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
 
-#sqlite3:
-#  image: "prom/promdash"
-#  command:
-#    - "./bin/rake db:migrate"
-#  volumes:
-#    - "/tmp/prom:/tmp/prom"
-#  environment:
-#    - "DATABASE_URL=sqlite3:/tmp/prom/file.sqlite3"
-
 grafana:
-  image: "localhost:5000/mystaff-grafana"
-  ports:
-    - "3000:3000"
+  image: "grafana/grafana"
+  links:
+    - prometheus
   expose:
     - "3000"
   volumes:
     - ./storage/grafana:/var/lib/grafana
     - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
-
-#promdash:
-#  image: "prom/promdash"
-#  ports:
-#    - "3000:3000"
-#  expose:
-#    - "3000"
-#  volumes:
-#    - /tmp/prom:/tmp/prom
-#  environment:
-#    - "DATABASE_URL=sqlite3:/tmp/prom/file.sqlite3"
-#  labels: 
-#    - "name=prom dashboard"
-#    - "description=Dashboards for metrics"
-#    - "version=latest"
-
