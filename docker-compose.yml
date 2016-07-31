@@ -10,6 +10,7 @@ nginx:
     - app-web
     - app-admin
     - app-desktop
+    - grafana
 
 api-server:
   image: 847166803921.dkr.ecr.us-east-1.amazonaws.com/staff-api-server:latest
@@ -51,3 +52,37 @@ mongo:
 
 rabbitmq:
   image: rabbitmq
+
+cadvisor:
+  image: google/cadvisor
+  expose:
+    - "8080"
+  volumes:
+    - /:/rootfs:ro
+    - /var/run:/var/run:rw 
+    - /sys:/sys:ro 
+    - /var/lib/docker/:/var/lib/docker:ro
+
+node-exporter:
+  image: prom/node-exporter
+  expose:
+    - "9100"
+
+prometheus:
+  image: "prom/prometheus"
+  links:
+    - cadvisor
+  expose:
+    - "9090"
+  volumes:
+    - ./etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+grafana:
+  image: "grafana/grafana"
+  links:
+    - prometheus
+  expose:
+    - "3000"
+  volumes:
+    - ./storage/grafana:/var/lib/grafana
+    - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
