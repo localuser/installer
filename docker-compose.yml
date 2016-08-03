@@ -57,6 +57,10 @@ cadvisor:
   image: google/cadvisor
   expose:
     - "8080"
+  entrypoint:
+    - /usr/bin/cadvisor
+    - -logtostderr
+    - --housekeeping_interval=10s
   volumes:
     - /:/rootfs:ro
     - /var/run:/var/run:rw 
